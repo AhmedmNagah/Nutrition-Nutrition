@@ -1,6 +1,7 @@
 import { DataService } from 'src/app/data.service';
 import { Component, Input, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { NgxSpinnerService } from 'ngx-spinner';
 
 @Component({
   selector: 'app-responce',
@@ -16,7 +17,7 @@ export class ResponceComponent implements OnInit {
   data: any;
   ingr:string;
 
-  constructor(data: DataService, private http: HttpClient) {
+  constructor(data: DataService, private http: HttpClient,private spinner: NgxSpinnerService) {
     this.ingr = data.getOption();
     this.getResponse(this.ingr);
   }
@@ -30,7 +31,13 @@ export class ResponceComponent implements OnInit {
   }
   ;
 
-  ngOnInit(): void {
-  }
+  ngOnInit() {
+    /** spinner starts on init */
+    this.spinner.show();
 
+    setTimeout(() => {
+      /** spinner ends after 5 seconds */
+      this.spinner.hide();
+    },1000);
+  }
 }

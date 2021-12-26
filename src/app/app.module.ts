@@ -1,5 +1,5 @@
 import { DataService } from 'src/app/data.service';
-import { NgModule } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import {HttpClientModule} from "@angular/common/http";
 import { AppRoutingModule } from './app-routing.module';
@@ -11,6 +11,7 @@ import { ResponceComponent } from './pages/responce/responce.component';
 import { RouterModule } from '@angular/router';
 import { SummaryComponent } from './pages/summary/summary.component';
 import { WelcomeComponent } from './pages/welcome/welcome.component';
+import { NgxSpinnerModule } from 'ngx-spinner';
 
 @NgModule({
   declarations: [
@@ -29,8 +30,10 @@ import { WelcomeComponent } from './pages/welcome/welcome.component';
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
+    NgxSpinnerModule
 
   ],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
   providers: [DataService],
   bootstrap: [AppComponent]
 })
