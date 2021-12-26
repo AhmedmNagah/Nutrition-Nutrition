@@ -1,0 +1,19 @@
+<body>
+    <div class="analyzer-coontainer">
+        <form [formGroup]="userForm">
+            <div class="form-row">
+                <div class="form-row mt-4">
+                    <div class="raw-data">
+                        <header>
+                            <h2>Enter Your Ingredients</h2>
+                        </header>
+                        <textarea #inputText type="text" formControlName="textarea" class="form-control"
+                            placeholder="Ingredients goes here" formControlName="inputText"></textarea>
+                        <button [disabled]="userForm.invalid" (click)='sendToAnalysis(inputText.value);'
+                            class='btn btn-primary' [routerLink]="['/summary']">Analyze </button>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</body>
